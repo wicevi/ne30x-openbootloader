@@ -43,7 +43,7 @@
 #define USBD_DEBUG_LEVEL                      0U
 
 /* DFU Class Config */
-#define USBD_DFU_MAX_ITF_NUM                   5U
+/* USBD_DFU_MAX_ITF_NUM and the alternate setting table: see usbd_dfu_alt_conf.h */
 #define USBD_DFU_XFER_SIZE                     1024U      /* Max DFU Packet Size = 1024 bytes */
 #define USBD_DFU_APP_DEFAULT_ADD               0x08020000 /* The first sector (32 KB) is reserved for DFU code */
 #define USBD_DFU_MAX_NB_OF_SECTORS             8U         /* Max number of sectors */

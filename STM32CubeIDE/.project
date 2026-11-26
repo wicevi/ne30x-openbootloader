@@ -209,47 +209,47 @@
 		<link>
 			<name>Middlewares/OpenBootloader/Core/openbl_core.c</name>
 			<type>1</type>
-			<locationURI>PARENT-5-PROJECT_LOC/Middlewares/ST/OpenBootloader/Core/openbl_core.c</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/Middlewares/ST/OpenBootloader/Core/openbl_core.c</locationURI>
 		</link>
 		<link>
 			<name>Middlewares/OpenBootloader/USB_Device_Library/usbd_core.c</name>
 			<type>1</type>
-			<locationURI>PARENT-5-PROJECT_LOC/Middlewares/ST/OpenBootloader/STM32_USB_Device_Library/Core/Src/usbd_core.c</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/Middlewares/ST/OpenBootloader/STM32_USB_Device_Library/Core/Src/usbd_core.c</locationURI>
 		</link>
 		<link>
 			<name>Middlewares/OpenBootloader/USB_Device_Library/usbd_ctlreq.c</name>
 			<type>1</type>
-			<locationURI>PARENT-5-PROJECT_LOC/Middlewares/ST/OpenBootloader/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/Middlewares/ST/OpenBootloader/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c</locationURI>
 		</link>
 		<link>
 			<name>Middlewares/OpenBootloader/USB_Device_Library/usbd_dfu.c</name>
 			<type>1</type>
-			<locationURI>PARENT-5-PROJECT_LOC/Middlewares/ST/OpenBootloader/STM32_USB_Device_Library/Class/DFU/Src/usbd_dfu.c</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/Middlewares/ST/OpenBootloader/STM32_USB_Device_Library/Class/DFU/Src/usbd_dfu.c</locationURI>
 		</link>
 		<link>
 			<name>Middlewares/OpenBootloader/USB_Device_Library/usbd_ioreq.c</name>
 			<type>1</type>
-			<locationURI>PARENT-5-PROJECT_LOC/Middlewares/ST/OpenBootloader/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/Middlewares/ST/OpenBootloader/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c</locationURI>
 		</link>
 		<link>
 			<name>Middlewares/OpenBootloader/Util/openbl_util.c</name>
 			<type>1</type>
-			<locationURI>PARENT-5-PROJECT_LOC/Middlewares/ST/OpenBootloader/Util/openbl_util.c</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/Middlewares/ST/OpenBootloader/Util/openbl_util.c</locationURI>
 		</link>
 		<link>
 			<name>Middlewares/OpenBootloader/Modules/MEM/openbl_mem.c</name>
 			<type>1</type>
-			<locationURI>PARENT-5-PROJECT_LOC/Middlewares/ST/OpenBootloader/Modules/Mem/openbl_mem.c</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/Middlewares/ST/OpenBootloader/Modules/Mem/openbl_mem.c</locationURI>
 		</link>
 		<link>
 			<name>Middlewares/OpenBootloader/Modules/USART/openbl_usart_cmd.c</name>
 			<type>1</type>
-			<locationURI>PARENT-5-PROJECT_LOC/Middlewares/ST/OpenBootloader/Modules/USART/openbl_usart_cmd.c</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/Middlewares/ST/OpenBootloader/Modules/USART/openbl_usart_cmd.c</locationURI>
 		</link>
 		<link>
 			<name>Middlewares/OpenBootloader/Modules/USB/openbl_usb_cmd.c</name>
 			<type>1</type>
-			<locationURI>PARENT-5-PROJECT_LOC/Middlewares/ST/OpenBootloader/Modules/USB/openbl_usb_cmd.c</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/Middlewares/ST/OpenBootloader/Modules/USB/openbl_usb_cmd.c</locationURI>
 		</link>
 	</linkedResources>
 </projectDescription>

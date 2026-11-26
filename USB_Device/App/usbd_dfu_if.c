@@ -26,7 +26,6 @@
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
-#define MEDIA_DESC_STR      "@virtual /0xF1/1*512Be"
 #define MEDIA_ERASE_TIME    (uint16_t)5U
 #define MEDIA_PROGRAM_TIME  (uint16_t)5U
 
@@ -39,9 +38,11 @@ static uint8_t *USB_DFU_If_Read(uint32_t alt, uint8_t *pDest, uint32_t Len, uint
 static uint16_t USB_DFU_If_DeInit(void);
 static uint16_t USB_DFU_If_GetStatus(uint32_t Add, uint8_t Cmd, uint8_t *buffer);
 
+/* The interface string of every alternate setting (including the virtual one) is built
+   from the alternate setting table (usbd_dfu_alt_conf.h), hence no media string here */
 __ALIGN_BEGIN USBD_DFU_MediaTypeDef USBD_DFU_Media_fops __ALIGN_END =
 {
-  (uint8_t *)MEDIA_DESC_STR,
+  NULL,
   USB_DFU_If_Init,
   USB_DFU_If_DeInit,
   USB_DFU_If_Erase,
@@ -99,9 +100,9 @@ uint16_t USB_DFU_If_Erase(uint32_t Add)
   */
 uint16_t USB_DFU_If_Write(uint8_t *pSrc, uint32_t alt, uint32_t Len, uint32_t BlockNumber)
 {
-  OPENBL_USB_Download(pSrc, alt, Len, BlockNumber);
-
-  return 0;
+  /* A non-zero result makes the DFU class enter the dfuERROR state, reported to
+     the host by the next GETSTATUS (errTarget) */
+  return (uint16_t)OPENBL_USB_Download(pSrc, alt, Len, BlockNumber);
 }
 
 /**

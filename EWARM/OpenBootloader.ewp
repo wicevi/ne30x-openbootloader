@@ -357,13 +357,13 @@
                     <state>$PROJ_DIR$\..\OpenBootloader\Target</state>
                     <state>$PROJ_DIR$\..\USB_Device\App</state>
                     <state>$PROJ_DIR$\..\USB_Device\Target</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\Middlewares\ST\OpenBootloader\Core</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\Middlewares\ST\OpenBootloader\Util</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\Middlewares\ST\OpenBootloader\Modules\Mem</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\Middlewares\ST\OpenBootloader\Modules\USART</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\Middlewares\ST\OpenBootloader\Modules\USB</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\Middlewares\ST\OpenBootloader\STM32_USB_Device_Library\Class\DFU\Inc</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\Middlewares\ST\OpenBootloader\STM32_USB_Device_Library\Core\Inc</state>
+                    <state>$PROJ_DIR$\..\Middlewares\ST\OpenBootloader\Core</state>
+                    <state>$PROJ_DIR$\..\Middlewares\ST\OpenBootloader\Util</state>
+                    <state>$PROJ_DIR$\..\Middlewares\ST\OpenBootloader\Modules\Mem</state>
+                    <state>$PROJ_DIR$\..\Middlewares\ST\OpenBootloader\Modules\USART</state>
+                    <state>$PROJ_DIR$\..\Middlewares\ST\OpenBootloader\Modules\USB</state>
+                    <state>$PROJ_DIR$\..\Middlewares\ST\OpenBootloader\STM32_USB_Device_Library\Class\DFU\Inc</state>
+                    <state>$PROJ_DIR$\..\Middlewares\ST\OpenBootloader\STM32_USB_Device_Library\Core\Inc</state>
                     <state>$PROJ_DIR$\..\..\..\..\..\Drivers\CMSIS\Core\Include</state>
                     <state>$PROJ_DIR$\..\..\..\..\..\Drivers\STM32N6xx_HAL_Driver\Inc</state>
                     <state>$PROJ_DIR$\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32N6xx\Include</state>
@@ -1262,7 +1262,7 @@
             <group>
                 <name>Core</name>
                 <file>
-                    <name>$PROJ_DIR$\..\..\..\..\..\Middlewares\ST\OpenBootloader\Core\openbl_core.c</name>
+                    <name>$PROJ_DIR$\..\Middlewares\ST\OpenBootloader\Core\openbl_core.c</name>
                 </file>
             </group>
             <group>
@@ -1270,41 +1270,41 @@
                 <group>
                     <name>MEM</name>
                     <file>
-                        <name>$PROJ_DIR$\..\..\..\..\..\Middlewares\ST\OpenBootloader\Modules\Mem\openbl_mem.c</name>
+                        <name>$PROJ_DIR$\..\Middlewares\ST\OpenBootloader\Modules\Mem\openbl_mem.c</name>
                     </file>
                 </group>
                 <group>
                     <name>USART</name>
                     <file>
-                        <name>$PROJ_DIR$\..\..\..\..\..\Middlewares\ST\OpenBootloader\Modules\USART\openbl_usart_cmd.c</name>
+                        <name>$PROJ_DIR$\..\Middlewares\ST\OpenBootloader\Modules\USART\openbl_usart_cmd.c</name>
                     </file>
                 </group>
                 <group>
                     <name>USB</name>
                     <file>
-                        <name>$PROJ_DIR$\..\..\..\..\..\Middlewares\ST\OpenBootloader\Modules\USB\openbl_usb_cmd.c</name>
+                        <name>$PROJ_DIR$\..\Middlewares\ST\OpenBootloader\Modules\USB\openbl_usb_cmd.c</name>
                     </file>
                 </group>
             </group>
             <group>
                 <name>USB_Device_Library</name>
                 <file>
-                    <name>$PROJ_DIR$\..\..\..\..\..\Middlewares\ST\OpenBootloader\STM32_USB_Device_Library\Core\Src\usbd_core.c</name>
+                    <name>$PROJ_DIR$\..\Middlewares\ST\OpenBootloader\STM32_USB_Device_Library\Core\Src\usbd_core.c</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\..\..\..\..\..\Middlewares\ST\OpenBootloader\STM32_USB_Device_Library\Core\Src\usbd_ctlreq.c</name>
+                    <name>$PROJ_DIR$\..\Middlewares\ST\OpenBootloader\STM32_USB_Device_Library\Core\Src\usbd_ctlreq.c</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\..\..\..\..\..\Middlewares\ST\OpenBootloader\STM32_USB_Device_Library\Class\DFU\Src\usbd_dfu.c</name>
+                    <name>$PROJ_DIR$\..\Middlewares\ST\OpenBootloader\STM32_USB_Device_Library\Class\DFU\Src\usbd_dfu.c</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\..\..\..\..\..\Middlewares\ST\OpenBootloader\STM32_USB_Device_Library\Core\Src\usbd_ioreq.c</name>
+                    <name>$PROJ_DIR$\..\Middlewares\ST\OpenBootloader\STM32_USB_Device_Library\Core\Src\usbd_ioreq.c</name>
                 </file>
             </group>
             <group>
                 <name>Util</name>
                 <file>
-                    <name>$PROJ_DIR$\..\..\..\..\..\Middlewares\ST\OpenBootloader\Util\openbl_util.c</name>
+                    <name>$PROJ_DIR$\..\Middlewares\ST\OpenBootloader\Util\openbl_util.c</name>
                 </file>
             </group>
         </group>

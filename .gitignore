@@ -1,0 +1,19 @@
+# build output
+build/
+
+# host-side test build output (Tests/usb_module)
+Tests/usb_module/build/
+Tests/usb_module/build_reference/
+Tests/usb_module/stubinc/
+*.o
+*.su
+
+# STM32CubeIDE generated files (build output, settings cache)
+STM32CubeIDE/Debug/
+STM32CubeIDE/Release/
+STM32CubeIDE/.settings/
+
+# Python byte code
+__pycache__/
+*.pyc
+*.log

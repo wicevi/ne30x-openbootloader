@@ -1,3 +1,119 @@
+## <b>OpenBootloader for the NE301</b>
+
+This is the ST OpenBootloader project of STM32Cube_FW_N6_V1.3.0, in its own git repository
+(https://github.com/wicevi/ne30x-openbootloader; the untouched ST project
+is the first commit), changed so that **every partition of a flash layout is programmed in
+one session**. The ST original programs one external memory
+partition per download over USB.
+
+It is used by the NE301 firmware project to download all its firmware over USB
+(`make usb-flash` there, `Script/usb_flash.py`). The images it uses are shipped with that
+project, in its `Script/usb_flash` directory: rebuild here (`make`), then copy
+`build/ne301_OpenBootloader_signed.stm32` there. The description of the ST application
+follows below.
+
+### <b>Build</b>
+
+```
+make                    # GNU Arm Embedded toolchain, STM32_SigningTool_CLI (STM32CubeProgrammer)
+```
+
+`build/ne301_OpenBootloader.bin`, and `build/ne301_OpenBootloader_signed.stm32`: the boot
+ROM image (header v2.3) STM32CubeProgrammer downloads and the boot ROM starts. The
+HAL and CMSIS drivers are taken from the STM32Cube_FW_N6 package this project sits in;
+from elsewhere, `make CUBE_FW=<package root>`.
+
+The CubeIDE, IAR and Keil projects build the same sources.
+
+### <b>Tests</b>
+
+```
+Tests/usb_module/test.sh                # arm-none-eabi-gcc, Python 3 with the "unicorn" package
+Tests/usb_module/test.sh --reference    # the same T0, against the untouched ST sources
+Tests/usb_module/test.sh --layout <dir> # also play a layout built by a host tool
+```
+
+The real `openbl_usb_cmd.c`, `openbl_util.c`, `usbd_dfu.c` and `usbd_ctlreq.c` are
+cross-compiled and executed in a CPU emulator (Unicorn, Cortex-M33: it has no M55 model
+and the code is plain integer C), against a model of a NOR flash. The host side of the
+tests takes the lines as the device announces them, without presuming which line comes:
+the reference run (`--reference`) proves that what it expects is what the ST original
+does, the one STM32CubeProgrammer was validated with. Not covered: the USB peripheral
+driver, the boot ROM, the external memory loader (a precompiled ST binary) and the real
+flash timings.
+
+### <b>A download, as STM32CubeProgrammer runs it</b>
+
+The host asks for the next item on the virtual alternate setting (id `0xF1`), twice per
+item: once to download it ("phase"), once to start it:
+
+```
+0x00  phase  -> the host downloads the flash layout text to alternate setting 0
+0x00  start
+id    phase  -> the host downloads the binary of the line carrying that id,
+                to the alternate setting of the id, at the address announced with it
+id    start      ... for every line
+0xFE         end of operation
+```
+
+Line 0 is the boot loader image in the layouts of ST: the boot ROM loaded and started
+it, and it has no alternate setting, so the OpenBootloader never announces it (a layout
+whose line 0 is something else is walked from line 0).
+
+### <b>Changes to the ST original</b>
+
+- **USB transport** (`Middlewares/ST/OpenBootloader/Modules/USB/openbl_usb_cmd.c`)
+  - a flash layout line is programmed at the offset of its own line, whatever its id
+  - the destination comes from the "ip" column: `none` -> RAM (the loader), `nor<n>` ->
+    external memory; an offset that leaves the memory is refused
+  - erase tracking per line: in the ST original a line at a lower address than the
+    previous one is not erased (its sector counter only increases)
+  - every 64 KB sector is erased for its own, aligned range: a line that ends exactly on
+    a sector boundary never erases the first sector of what follows it, and a packet that
+    straddles a boundary finds both sectors erased
+  - the loader is written from the offset reached so far, not from a block number times
+    a fixed packet length
+  - the walk of the lines restarts after the end of operation: several downloads can be
+    run without resetting the OpenBootloader; the layout of the session before is dropped
+    when the flash layout is announced again, so a refused download never walks it
+  - data sent on another alternate setting than the announced partition is refused; a
+    flash layout line with the id of the flash layout or of the OTP is refused too (the
+    ST original would take its binary for a flash layout, or program the OTP with it)
+  - init, write and verify failures are reported to the host (dfuERROR)
+- **Flash layout parser** (`Util/openbl_util.c`): the line counter is no longer static;
+  comment lines are skipped (a '#' not at the very first character of the text made the
+  parser loop forever); CR, empty lines, a last line without line end and more than six
+  columns are handled; a layout without a line, a malformed line and a line with a
+  missing column are errors (the ST original accepts an empty layout, ignores a malformed
+  last line and takes the column of the line before for one that is missing); a rejected
+  layout leaves nothing usable behind
+- **DFU class** (`STM32_USB_Device_Library/Class/DFU`): the alternate settings come from
+  a table, `usbd_dfu_alt_conf.h`; the configuration descriptor and the interface strings
+  are built from it at run time; a failed write puts the device in the DFU error state
+- The middleware is copied into the project (`Middlewares/`), and the IDE projects build
+  on that copy
+
+### <b>Alternate settings</b>
+
+STM32CubeProgrammer finds the alternate setting of a flash layout line by the partition
+id in its interface string, `@<name> /0x<id>/1*<size><unit>e`. The table
+`usbd_dfu_alt_conf.h` declares 16 alternate settings; their indices and strings of the
+five of the ST original are unchanged:
+
+| Alternate setting | Partition id | Use                                        |
+|-------------------|--------------|--------------------------------------------|
+| 0                 | 0x00         | the flash layout itself                     |
+| 1                 | 0x03         | the external memory loader (to RAM)         |
+| 2                 | 0x04         | first user partition                        |
+| 3                 | 0xF1         | command / virtual                           |
+| 4                 | 0xF2         | OTP                                         |
+| 5 .. 15           | 0x05 .. 0x0F | other user partitions                       |
+
+Rules for a layout: 15 lines at most, one partition id per line, user partition ids in
+`0x04`..`0x0F`; line 0 is normally the boot loader image, loaded by the boot ROM and
+never programmed by the OpenBootloader. Its text must fit in the 768 bytes behind the
+256 bytes reserved for a signature: STM32CubeProgrammer hands it over in one packet.
+
 ## <b>OpenBootloader Application Description</b>
 
 This application exploits OpenBootloader Middleware to demonstrate how to develop an application

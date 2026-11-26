@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>USE_FULL_LL_DRIVER,USE_HAL_DRIVER,STM32N657xx,USE_USB_HS,USER_VECT_TAB_ADDRESS</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;../OpenBootloader/App;../OpenBootloader/Target;../USB_Device/App;../USB_Device/Target;../../../../../Middlewares/ST/OpenBootloader/Core;../../../../../Middlewares/ST/OpenBootloader/Util;../../../../../Middlewares/ST/OpenBootloader/Modules/Mem;../../../../../Middlewares/ST/OpenBootloader/Modules/USART;../../../../../Middlewares/ST/OpenBootloader/Modules/USB;../../../../../Middlewares/ST/OpenBootloader/STM32_USB_Device_Library/Class/DFU/Inc;../../../../../Middlewares/ST/OpenBootloader/STM32_USB_Device_Library/Core/Inc;../../../../../Drivers/CMSIS/Core/Include;../../../../../Drivers/STM32N6xx_HAL_Driver/Inc;../../../../../Drivers/CMSIS/Device/ST/STM32N6xx/Include</IncludePath>
+              <IncludePath>../Core/Inc;../OpenBootloader/App;../OpenBootloader/Target;../USB_Device/App;../USB_Device/Target;../Middlewares/ST/OpenBootloader/Core;../Middlewares/ST/OpenBootloader/Util;../Middlewares/ST/OpenBootloader/Modules/Mem;../Middlewares/ST/OpenBootloader/Modules/USART;../Middlewares/ST/OpenBootloader/Modules/USB;../Middlewares/ST/OpenBootloader/STM32_USB_Device_Library/Class/DFU/Inc;../Middlewares/ST/OpenBootloader/STM32_USB_Device_Library/Core/Inc;../../../../../Drivers/CMSIS/Core/Include;../../../../../Drivers/STM32N6xx_HAL_Driver/Inc;../../../../../Drivers/CMSIS/Device/ST/STM32N6xx/Include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -612,7 +612,7 @@
             <File>
               <FileName>openbl_core.c</FileName>
               <FileType>1</FileType>
-              <FilePath>../../../../../Middlewares/ST/OpenBootloader/Core/openbl_core.c</FilePath>
+              <FilePath>../Middlewares/ST/OpenBootloader/Core/openbl_core.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -622,7 +622,7 @@
             <File>
               <FileName>openbl_mem.c</FileName>
               <FileType>1</FileType>
-              <FilePath>../../../../../Middlewares/ST/OpenBootloader/Modules/Mem/openbl_mem.c</FilePath>
+              <FilePath>../Middlewares/ST/OpenBootloader/Modules/Mem/openbl_mem.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -632,7 +632,7 @@
             <File>
               <FileName>openbl_usart_cmd.c</FileName>
               <FileType>1</FileType>
-              <FilePath>../../../../../Middlewares/ST/OpenBootloader/Modules/USART/openbl_usart_cmd.c</FilePath>
+              <FilePath>../Middlewares/ST/OpenBootloader/Modules/USART/openbl_usart_cmd.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -642,7 +642,7 @@
             <File>
               <FileName>openbl_usb_cmd.c</FileName>
               <FileType>1</FileType>
-              <FilePath>../../../../../Middlewares/ST/OpenBootloader/Modules/USB/openbl_usb_cmd.c</FilePath>
+              <FilePath>../Middlewares/ST/OpenBootloader/Modules/USB/openbl_usb_cmd.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -652,22 +652,22 @@
             <File>
               <FileName>usbd_core.c</FileName>
               <FileType>1</FileType>
-              <FilePath>../../../../../Middlewares/ST/OpenBootloader/STM32_USB_Device_Library/Core/Src/usbd_core.c</FilePath>
+              <FilePath>../Middlewares/ST/OpenBootloader/STM32_USB_Device_Library/Core/Src/usbd_core.c</FilePath>
             </File>
             <File>
               <FileName>usbd_ctlreq.c</FileName>
               <FileType>1</FileType>
-              <FilePath>../../../../../Middlewares/ST/OpenBootloader/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c</FilePath>
+              <FilePath>../Middlewares/ST/OpenBootloader/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c</FilePath>
             </File>
             <File>
               <FileName>usbd_dfu.c</FileName>
               <FileType>1</FileType>
-              <FilePath>../../../../../Middlewares/ST/OpenBootloader/STM32_USB_Device_Library/Class/DFU/Src/usbd_dfu.c</FilePath>
+              <FilePath>../Middlewares/ST/OpenBootloader/STM32_USB_Device_Library/Class/DFU/Src/usbd_dfu.c</FilePath>
             </File>
             <File>
               <FileName>usbd_ioreq.c</FileName>
               <FileType>1</FileType>
-              <FilePath>../../../../../Middlewares/ST/OpenBootloader/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c</FilePath>
+              <FilePath>../Middlewares/ST/OpenBootloader/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -677,7 +677,7 @@
             <File>
               <FileName>openbl_util.c</FileName>
               <FileType>1</FileType>
-              <FilePath>../../../../../Middlewares/ST/OpenBootloader/Util/openbl_util.c</FilePath>
+              <FilePath>../Middlewares/ST/OpenBootloader/Util/openbl_util.c</FilePath>
             </File>
           </Files>
         </Group>
